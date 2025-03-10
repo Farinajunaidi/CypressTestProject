@@ -1,0 +1,40 @@
+name: Cypress Tests
+
+on: [push, pull_request]
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: List Files (Debugging Step)
+        run: ls -R
+
+      - name: Run Cypress Tests (Question1)
+        run: npx cypress run --spec "cypress-tests/cypress/e2e/Question1.cy.js"
+
+      - name: Run Cypress Tests (Question2)
+        run: npx cypress run --spec "cypress-tests/cypress/e2e/Question2.cy.js"
+
+      - name: Run Cypress Tests (Question3)
+        run: npx cypress run --spec "cypress-tests/cypress/e2e/Question3.cy.js"
+
+      - name: Upload Cypress Artifacts (If Tests Fail)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-results-question3
+          path: |
+            cypress/screenshots
+            cypress/videos
