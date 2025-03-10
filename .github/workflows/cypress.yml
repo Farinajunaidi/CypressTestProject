@@ -30,11 +30,11 @@ jobs:
       - name: Run Cypress Tests (Question3)
         run: npx cypress run --spec "cypress-tests/cypress/e2e/Question3.cy.js"
 
-      - name: Upload Cypress Test Results (If Tests Fail)
+      - name: Upload Cypress Artifacts (If Tests Fail)
         if: failure()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: cypress-results
+          name: cypress-results-question3
           path: |
-            cypress-tests/cypress/screenshots
-            cypress-tests/cypress/videos
+            cypress/screenshots
+            cypress/videos
