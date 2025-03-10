@@ -3,9 +3,9 @@ name: Cypress Tests
 on: [push, pull_request]
 
 jobs:
-  cypress-run:
+  job1:
+    name: Run Question1 Tests
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
@@ -16,16 +16,43 @@ jobs:
           node-version: 18
 
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Run Cypress Tests
-        run: npx cypress run
+      - name: Run Cypress Tests (Question1)
+        run: npx cypress run --spec "cypress/e2e/Question1.cy.js"
 
-      - name: Upload Cypress Test Results (If Tests Fail)
-        if: failure()
-        uses: actions/upload-artifact@v3
+  job2:
+    name: Run Question2 Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
         with:
-          name: cypress-results
-          path: |
-            cypress/screenshots
-            cypress/videos
+          node-version: 18
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run Cypress Tests (Question2)
+        run: npx cypress run --spec "cypress/e2e/Question2.cy.js"
+
+  job3:
+    name: Run Question3 Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run Cypress Tests (Question3)
+        run: npx cypress run --spec "cypress/e2e/Question3.cy.js"
