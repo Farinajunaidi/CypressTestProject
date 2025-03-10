@@ -5,7 +5,6 @@ on: [push, pull_request]
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -18,18 +17,9 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: List Files (Debugging Step)
-        run: ls -R
-
-      - name: Run Cypress Tests (Question1)
-        run: npx cypress run --spec "cypress-tests/cypress/e2e/Question1.cy.js"
-
-      - name: Run Cypress Tests (Question2)
-        run: npx cypress run --spec "cypress-tests/cypress/e2e/Question2.cy.js"
-
-      - name: Run Cypress Tests (Question3)
-        run: npx cypress run --spec "cypress-tests/cypress/e2e/Question3.cy.js"
+      - name: Run Cypress Tests (All)
+        run: npx cypress run --spec "cypress/e2e/*.cy.js"
 
       - name: Report Test Status
         if: failure()
-        run: echo "❌ Cypress test failed!" && exit 1
+        run: echo "❌ Cypress tests failed!" && exit 1
