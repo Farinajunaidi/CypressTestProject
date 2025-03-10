@@ -37,4 +37,3 @@ jobs:
           name: cypress-results-question3
           path: |
             cypress/screenshots
-            cypress/videos
