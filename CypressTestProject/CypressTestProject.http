@@ -1,0 +1,6 @@
+@CypressTestProject_HostAddress = http://localhost:5249
+
+GET {{CypressTestProject_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

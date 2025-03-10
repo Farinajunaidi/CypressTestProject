@@ -1,0 +1,44 @@
+Question 7:
+Answer the following in your own words.
+
+a) How do you install Cypress and set up your first test?
+
+1.First, I downloaded Node.js from its official website.
+2.I created a new project and named it CypressTestProject.
+3.Using Visual Studio, I tested my connection with Node.js.
+4.In my project, I added a new folder named CypressTest.
+5.I right-clicked the folder and selected Open in Terminal.
+6.To test the connection between Node.js and my project, I typed node in the terminal.
+7.After confirming a successful connection, I created a program.js file for my Cypress test and initialized the project by typing npm init.
+8.I installed Cypress by running the following command in the terminal:
+npm install cypress
+9.To launch Cypress, I ran:
+npx cypress open
+10.I then selected E2E Testing and chose Chrome as my browser.
+11.Finally, I created a new test case, named it Question1.cy.js, and started writing my first test.
+12.To edit my test cases, I open the code file in Visual Studio. When I save my changes, Cypress automatically reruns the test in the Chrome browser.
+
+b) How do you handle authentication and authorization in Cypress tests?
+
+
+
+
+c) What is the role of the Cypress Test Runner and what features does it offer?
+
+Cypress Test Runner is a visual tool that helps me run and debug Cypress tests in real time. It provides a step-by-step execution, making it easier to identify errors. It also displays live logs and screenshots in Chrome. 
+Additionally, I can instantly rerun my tests after editing the test code. In short, it helps me write, run, debug, and analyze tests efficiently.
+
+d) How do you integrate Cypress into a Continuous Integration (CI) pipeline?
+
+A CI pipeline integrates Cypress to run UI tests automatically, ensuring apps work correctly before release. 
+Make sure you already install Cypress in your project (npm install cypress).Then, Set up a CI workflow (Gitea/Github) to run Cypress after the build.
+Run tests in headless mode using npx cypress run.
+Store test artifacts (screenshots & videos) for debugging.
+Use Docker or parallelization to optimize test execution.
+
+
+e) How do you handle dynamic data and input fields in Cypress tests?
+
+
+
+f) How do you add dependency to Cypress?
